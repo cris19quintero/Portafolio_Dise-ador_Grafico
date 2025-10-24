@@ -1,36 +1,36 @@
 import React from 'react';
-import './Contact.css';
+import './contact.css';
 
 function Contact() {
   const contactMethods = [
     {
       id: 'whatsapp',
       name: 'WhatsApp',
-      emoji: '💬',
+      icon: '📱',
       description: 'Conversación directa por WhatsApp',
-      desktopLink: 'https://wa.me/1234567890?text=Hola%20César,%20me%20interesa%20hablar%20sobre%20un%20proyecto',
-      mobileLink: 'whatsapp://send?phone=1234567890&text=Hola%20César,%20me%20interesa%20hablar%20sobre%20un%20proyecto'
+      desktopLink: 'https://wa.me/50765505130?text=Hola%20César,%20me%20interesa%20hablar%20sobre%20un%20proyecto',
+      mobileLink: 'whatsapp://send?phone=50765505130&text=Hola%20César,%20me%20interesa%20hablar%20sobre%20un%20proyecto'
     },
     {
       id: 'email',
       name: 'Email',
-      emoji: '📧',
+      icon: '✉️',
       description: 'Envíame un correo directo',
-      link: 'mailto:cesar@example.com?subject=Interesado%20en%20tus%20servicios'
+      link: 'mailto:cesarsaavedra0727@gmail.com?subject=Interesado%20en%20tus%20servicios'
     },
     {
       id: 'instagram',
       name: 'Instagram',
-      emoji: '📸',
+      icon: '📷',
       description: 'Sígueme en Instagram',
-      link: 'https://instagram.com/cesar.saavedra'
+      link: 'https://instagram.com/cesarsaavedra0727'
     },
     {
       id: 'linkedin',
       name: 'LinkedIn',
-      emoji: '🔗',
+      icon: '💼',
       description: 'Conéctate en LinkedIn',
-      link: 'https://linkedin.com/in/cesar-saavedra'
+      link: 'https://www.linkedin.com/in/cesar-saavedra-ab8b9a89'
     }
   ];
 
@@ -41,6 +41,11 @@ function Contact() {
       return isMobile ? method.mobileLink : method.desktopLink;
     }
     return method.link;
+  };
+
+  const handleContactClick = (method) => {
+    const link = getContactLink(method);
+    window.open(link, '_blank');
   };
 
   return (
@@ -63,19 +68,17 @@ function Contact() {
 
           <div className="contact-methods-grid">
             {contactMethods.map((method, index) => (
-              <a
+              <div
                 key={method.id}
-                href={getContactLink(method)}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => handleContactClick(method)}
                 className="contact-method-card fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="contact-icon">{method.emoji}</div>
+                <div className="contact-icon">{method.icon}</div>
                 <h3>{method.name}</h3>
                 <p>{method.description}</p>
                 <span className="contact-arrow">→</span>
-              </a>
+              </div>
             ))}
           </div>
         </div>
@@ -113,6 +116,12 @@ function Contact() {
         <div className="container text-center">
           <h2>¿Listo para comenzar?</h2>
           <p>No dudes en contactarme con tus ideas, preguntas o proyectos</p>
+          <button 
+            className="btn btn-primary mt-20"
+            onClick={() => handleContactClick(contactMethods[0])}
+          >
+            Contactar por WhatsApp
+          </button>
         </div>
       </section>
     </div>

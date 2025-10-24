@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Projects.css';
 
 function Projects() {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-
   const projectCategories = [
     {
       id: 'diseno-grafico',
@@ -51,7 +49,7 @@ function Projects() {
     {
       id: 'recorrido-virtual',
       name: 'Recorrido Virtual',
-      emoji: '🏡',
+      emoji: '🏛️', // Cambiado de 🏡 a 🏛️ para mejor compatibilidad
       description: 'Experiencias inmersivas'
     }
   ];
@@ -94,11 +92,11 @@ function Projects() {
       {/* Info Section */}
       <section className="info-section">
         <div className="container text-center">
-          <h2>Amplio Portafolio de Proyectos</h2>
+          <h2>Un Universo Creativo sin Límites</h2>
           <p>
-            Con más de 2.73 GB en activos digitales, incluyendo animaciones, videos,
-            renders, diseños gráficos y recorridos virtuales, estoy preparado para
-            proyectos de cualquier escala y complejidad.
+            Presento una colección de <strong>animaciones, renders, videos e ilustraciones</strong> que
+            reflejan mi <strong>pasión por el detalle</strong> y un enfoque visual que combina
+            <strong>técnica y creatividad</strong> en cada proyecto.
           </p>
         </div>
       </section>

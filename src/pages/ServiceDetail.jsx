@@ -31,7 +31,7 @@ function ServiceDetail() {
         'Adaptación Multiplataforma'
       ],
       projects: [
-        { title: 'Campaña Claudio Mamá', description: 'Videoproducción y animación' },
+        { title: 'Campaña Claudio Mamá', description: 'Videoproducción y animación', video:'../img/CAMPAÑA CLAUDIO - MAMA.mp4' },
         { title: 'Contenido Promocional', description: 'Materiales publicitarios integrados' },
         { title: 'Social Media Campaigns', description: 'Estrategia visual completa' }
       ]
@@ -113,7 +113,7 @@ function ServiceDetail() {
     },
     'recorrido-virtual': {
       name: 'Recorrido Virtual',
-      emoji: '🏡',
+      emoji: '🏛️', // Cambiado de 🏡 a 🏛️ para mejor compatibilidad
       description: 'Transformación de conceptos arquitectónicos en experiencias inmersivas que comunican con precisión.',
       highlights: [
         'Recorridos Virtuales Interactivos',
@@ -130,11 +130,56 @@ function ServiceDetail() {
 
   const service = serviceDetails[category] || serviceDetails['diseno-grafico'];
 
+  const handleContactWhatsApp = () => {
+    const message = `Hola César, me interesa el servicio de ${service.name}. ¿Podrías darme más información?`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/50765505130?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  // Estilos inline para garantizar uso completo de pantalla
+  const pageStyle = {
+    minHeight: '100vh',
+    width: '100%',
+    margin: 0,
+    padding: 0
+  };
+
+  const containerStyle = {
+    width: '100%',
+    maxWidth: '100%',
+    margin: '0 auto',
+    padding: '0 3%'
+  };
+
+  const sectionStyle = {
+    width: '100%',
+    padding: '80px 0'
+  };
+
+  const gridStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '30px',
+    width: '100%',
+    maxWidth: '1400px',
+    margin: '0 auto'
+  };
+
+  const projectsGridStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+    gap: '30px',
+    width: '100%',
+    maxWidth: '1400px',
+    margin: '0 auto'
+  };
+
   return (
-    <div className="page page-service-detail">
+    <div className="page page-service-detail" style={pageStyle}>
       {/* Header */}
       <section className="service-header">
-        <div className="container">
+        <div className="container" style={containerStyle}>
           <Link to="/projects" className="back-link">← Volver a Proyectos</Link>
           <h1>{service.emoji} {service.name}</h1>
           <p>{service.description}</p>
@@ -142,10 +187,10 @@ function ServiceDetail() {
       </section>
 
       {/* Highlights */}
-      <section className="section highlights-section">
-        <div className="container">
+      <section className="section highlights-section" style={sectionStyle}>
+        <div className="container" style={containerStyle}>
           <h2>Especialidades</h2>
-          <div className="highlights-grid">
+          <div className="highlights-grid" style={gridStyle}>
             {service.highlights.map((highlight, index) => (
               <div key={index} className="highlight-card fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="highlight-number">{String(index + 1).padStart(2, '0')}</div>
@@ -157,10 +202,10 @@ function ServiceDetail() {
       </section>
 
       {/* Projects Gallery */}
-      <section className="section projects-gallery-section">
-        <div className="container">
-          <h2>Proyectos en esta categoría</h2>
-          <div className="projects-showcase">
+      <section className="section projects-gallery-section" style={sectionStyle}>
+        <div className="container" style={containerStyle}>
+              <h2>Galería de Trabajos</h2>
+          <div className="projects-showcase" style={projectsGridStyle}>
             {service.projects.map((project, index) => (
               <div key={index} className="project-showcase-card fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="project-thumbnail">
@@ -176,31 +221,19 @@ function ServiceDetail() {
         </div>
       </section>
 
-      {/* Gallery Placeholder */}
-      <section className="section gallery-placeholder-section">
-        <div className="container">
-          <h2>Galería de Trabajos</h2>
-          <div className="gallery-placeholder">
-            <div className="placeholder-message">
-              <h3>📂 Tus imágenes y videos irán aquí</h3>
-              <p>
-                Este espacio está listo para mostrar tus proyectos con imágenes y videos.
-                Puedes organizar tus activos por categoría para una presentación profesional.
-              </p>
-              <p className="hint">Con más de 2.73 GB en activos digitales, tienes amplio contenido para mostrar aquí.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Section */}
-      <section className="service-cta">
-        <div className="container text-center">
+      <section className="service-cta" style={sectionStyle}>
+        <div className="container text-center" style={containerStyle}>
           <h2>¿Interesado en este servicio?</h2>
           <p>Contáctame para discutir tu proyecto específico</p>
-          <a href="mailto:cesar@example.com" className="btn btn-primary">
-            Solicitar Presupuesto
-          </a>
+          <button 
+            className="btn btn-primary"
+            onClick={handleContactWhatsApp}
+          >
+            Solicitar Presupuesto por WhatsApp
+          </button>
         </div>
       </section>
     </div>

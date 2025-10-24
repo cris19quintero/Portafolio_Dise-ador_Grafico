@@ -79,9 +79,9 @@ function Home() {
                 <Link to="/projects" className="btn btn-primary">
                   Explorar Proyectos
                 </Link>
-                <a href="mailto:cesar@example.com" className="btn btn-secondary">
+                <Link to="/contact" className="btn btn-secondary">
                   Contactarme
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -176,9 +176,9 @@ function Home() {
         <div className="container text-center">
           <h2>¿Listo para transformar tu marca?</h2>
           <p>Estoy disponible para nuevos proyectos y colaboraciones estratégicas</p>
-          <a href="mailto:cesar@example.com" className="btn btn-primary mt-20">
+          <Link to="/contact" className="btn btn-primary mt-20">
             Iniciar Conversación
-          </a>
+          </Link>
         </div>
       </section>
     </div>

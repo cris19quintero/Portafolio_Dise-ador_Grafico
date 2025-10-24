@@ -1,7 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './About.css';
 
 function About() {
+  const handleContactWhatsApp = () => {
+    const message = 'Hola César, me gustaría conocer más sobre tus servicios de diseño.';
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/50765505130?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <div className="page page-about">
       {/* Hero Section */}
@@ -43,7 +51,7 @@ function About() {
                   <span className="highlight-icon">🎯</span>
                   <div>
                     <h4>Especialidades</h4>
-                    <p>9 áreas de expertise complementarias</p>
+                    <p>8 áreas de expertise complementarias</p>
                   </div>
                 </div>
 
@@ -185,9 +193,15 @@ function About() {
         <div className="container text-center">
           <h2>¿Listo para colaborar?</h2>
           <p>Contáctame para discutir cómo puedo ayudarte a llevar tu proyecto al siguiente nivel</p>
-          <a href="mailto:cesar@example.com" className="btn btn-primary mt-20">
-            Iniciar Conversación
-          </a>
+          <button 
+            onClick={handleContactWhatsApp}
+            className="btn btn-primary mt-20"
+          >
+            Iniciar Conversación por WhatsApp
+          </button>
+          <Link to="/contact" className="btn btn-secondary mt-20" style={{marginLeft: '15px'}}>
+            Ver Todos los Métodos de Contacto
+          </Link>
         </div>
       </section>
     </div>

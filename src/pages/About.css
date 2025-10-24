@@ -1,16 +1,18 @@
 /* ========== ABOUT PAGE ========== */
 .page-about {
   min-height: 100vh;
+  width: 100%;
 }
 
 /* ========== ABOUT HERO ========== */
 .about-hero {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%);
   border-bottom: 1px solid var(--border-color);
-  padding: 80px 0;
+  padding: 100px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .about-hero::before {
@@ -24,29 +26,40 @@
   left: -50px;
 }
 
+.about-hero .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 5%;
+}
+
 .about-hero h1 {
-  font-size: clamp(36px, 8vw, 56px);
+  font-size: clamp(36px, 8vw, 64px);
   font-weight: 700;
   margin-bottom: 15px;
   background: linear-gradient(135deg, var(--accent-color) 0%, #a0aec0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  position: relative;
-  z-index: 1;
 }
 
 .about-hero p {
-  font-size: 18px;
+  font-size: clamp(16px, 3vw, 20px);
   color: var(--text-muted);
   font-weight: 300;
-  position: relative;
-  z-index: 1;
 }
 
 /* ========== BIO SECTION ========== */
 .bio-section {
   padding: 80px 0;
+  width: 100%;
+}
+
+.bio-section .container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 5%;
 }
 
 .bio-grid {
@@ -57,7 +70,7 @@
 }
 
 .bio-text h2 {
-  font-size: 42px;
+  font-size: clamp(32px, 6vw, 48px);
   font-weight: 700;
   margin-bottom: 5px;
   background: linear-gradient(135deg, var(--accent-color) 0%, #a0aec0 100%);
@@ -67,7 +80,7 @@
 }
 
 .bio-text h3 {
-  font-size: 16px;
+  font-size: clamp(14px, 2.5vw, 18px);
   color: #667eea;
   font-weight: 600;
   text-transform: uppercase;
@@ -76,7 +89,7 @@
 }
 
 .bio-text p {
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   color: var(--text-muted);
   line-height: 1.9;
   margin-bottom: 25px;
@@ -148,6 +161,14 @@
   background: rgba(26, 32, 44, 0.4);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+  width: 100%;
+  padding: 80px 0;
+}
+
+.approach-section .container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 5%;
 }
 
 .approach-grid {
@@ -181,6 +202,14 @@
 /* ========== SKILLS SECTION ========== */
 .skills-section {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  width: 100%;
+  padding: 80px 0;
+}
+
+.skills-section .container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 5%;
 }
 
 .skills-grid {
@@ -241,10 +270,17 @@
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
   border-top: 1px solid rgba(102, 126, 234, 0.3);
   padding: 80px 0;
+  width: 100%;
+}
+
+.about-cta .container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 5%;
 }
 
 .about-cta h2 {
-  font-size: clamp(28px, 6vw, 44px);
+  font-size: clamp(28px, 6vw, 48px);
   font-weight: 700;
   margin-bottom: 15px;
   background: linear-gradient(135deg, var(--accent-color) 0%, #a0aec0 100%);
@@ -254,13 +290,84 @@
 }
 
 .about-cta p {
-  font-size: 18px;
+  font-size: clamp(16px, 3vw, 20px);
   color: var(--text-muted);
   margin-bottom: 30px;
 }
 
-/* ========== RESPONSIVE ========== */
-@media (max-width: 1024px) {
+/* ========== RESPONSIVE DESKTOP ========== */
+@media (min-width: 1440px) {
+  .about-hero .container,
+  .bio-section .container,
+  .approach-section .container,
+  .skills-section .container,
+  .about-cta .container {
+    padding: 0 3%;
+  }
+  
+  .about-hero {
+    padding: 120px 0;
+  }
+  
+  .bio-section,
+  .approach-section,
+  .skills-section {
+    padding: 100px 0;
+  }
+  
+  .about-cta {
+    padding: 120px 0;
+  }
+  
+  .bio-grid {
+    gap: 100px;
+  }
+  
+  .image-placeholder {
+    font-size: 140px;
+  }
+  
+  .approach-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .about-hero .container,
+  .bio-section .container,
+  .approach-section .container,
+  .skills-section .container,
+  .about-cta .container {
+    padding: 0 4%;
+  }
+  
+  .bio-grid {
+    gap: 60px;
+  }
+  
+  .approach-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+/* ========== RESPONSIVE TABLET ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-hero .container,
+  .bio-section .container,
+  .approach-section .container,
+  .skills-section .container,
+  .about-cta .container {
+    padding: 0 4%;
+  }
+  
   .bio-grid {
     grid-template-columns: 1fr;
     gap: 50px;
@@ -275,27 +382,41 @@
     max-width: 400px;
     margin: 0 auto;
   }
+
+  .approach-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .about-hero .container,
+  .bio-section .container,
+  .approach-section .container,
+  .skills-section .container,
+  .about-cta .container {
+    padding: 0 4%;
+  }
+  
   .about-hero {
     padding: 60px 0;
   }
 
-  .about-hero h1 {
-    font-size: 32px;
+  .bio-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
-  .bio-text h2 {
-    font-size: 32px;
+  .bio-image {
+    order: -1;
   }
 
-  .bio-text h3 {
-    font-size: 14px;
-  }
-
-  .bio-text p {
-    font-size: 14px;
+  .image-placeholder {
+    font-size: 60px;
+    max-height: 300px;
   }
 
   .approach-grid {
@@ -309,20 +430,19 @@
   .about-cta {
     padding: 60px 0;
   }
-
-  .image-placeholder {
-    font-size: 60px;
-    max-height: 300px;
-  }
 }
 
 @media (max-width: 480px) {
+  .about-hero .container,
+  .bio-section .container,
+  .approach-section .container,
+  .skills-section .container,
+  .about-cta .container {
+    padding: 0 3%;
+  }
+  
   .about-hero {
     padding: 40px 0;
-  }
-
-  .about-hero h1 {
-    font-size: 24px;
   }
 
   .about-hero::before {
@@ -332,10 +452,6 @@
 
   .bio-grid {
     gap: 30px;
-  }
-
-  .bio-text h2 {
-    font-size: 24px;
   }
 
   .bio-highlights {
